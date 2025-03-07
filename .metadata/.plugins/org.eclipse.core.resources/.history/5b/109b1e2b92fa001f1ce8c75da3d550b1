@@ -1,0 +1,55 @@
+package app;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import util.MessageConstants;
+/**
+ * 在庫を管理するためのクラス。商品の追加、在庫表示、商品検索といった機能を提供する
+ * 
+ * @author 教育PJ
+ * @since 2024/8/13
+ */
+public class Inventory {
+	
+    private List<Product> products = new ArrayList<>();
+
+    /**
+     * 商品を在庫に追加するメソッド。
+     * @param product 追加する商品
+     */
+    public void addProduct(Product product) {
+        this.products.add(product);
+        System.out.println(MessageConstants.PRODUCT_ADDED + product.getName());
+    }
+
+    /**
+     * 現在の在庫を表示するメソッド。
+     */
+    public void displayInventory() {
+		if (products.isEmpty()) {
+			System.out.println(MessageConstants.NO_INVENTORY);
+			return;
+		}
+        System.out.println(MessageConstants.INVENTORY_HEADER);
+        for (Product product : products) {
+            System.out.println("商品: " + product.getName() + ", 数量: " + product.getQuantity());
+        }
+    }
+
+    /**
+     * 指定された名前の商品を検索するメソッド。
+     * @param name 検索する商品の名前
+     * @return 見つかった商品、またはnull
+     */
+    public Product searchProduct(String name) {
+        for (Product product : products) {
+            if (product.getName().equalsIgnoreCase(name)) {
+                return product;
+            }
+        }
+//        System.out.println(MessageConstants.PRODUCT_NOT_FOUND);
+        return null;
+    }
+}
+

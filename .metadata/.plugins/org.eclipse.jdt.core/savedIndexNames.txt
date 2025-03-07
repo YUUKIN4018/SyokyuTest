@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+/Users/nagasakayuki/Desktop/社内教育/Java初級テスト/Java理解度テスト_初級/.metadata/.plugins/org.eclipse.jdt.core
+212779081.index
+337032961.index
+1865797976.index
